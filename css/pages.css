@@ -1,0 +1,623 @@
+/* Главная */
+.home-hero {
+  padding: 28px 0 150px;
+}
+
+.home-hero h1 {
+  margin: 36px auto;
+}
+
+.home-hero p {
+  margin-bottom: 36px;
+  font-size: 16px;
+  font-weight: 450;
+  line-height: 1.65;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.home-section {
+  margin-bottom: 80px;
+}
+
+.home-section h2,
+.about-space h2,
+.profile h2 {
+  margin-bottom: 30px;
+}
+
+.training-tile {
+  display: flex;
+  align-items: end;
+  height: 252px;
+  padding: 26px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.training-tile:hover,
+.trainer-card:hover {
+  background: #dedede;
+}
+
+.promo-row {
+  margin-top: 60px;
+}
+
+.promo-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 148px;
+  padding: 30px 36px;
+}
+
+.promo-card h3 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.promo-card .pill {
+  padding: 12px 30px;
+}
+
+.trainer-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 376px;
+  padding: 20px;
+}
+
+.trainer-card h3 {
+  margin-bottom: 12px;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.trainer-card p {
+  margin-bottom: 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.trainer-card small {
+  color: #a7a5a8;
+  font-size: 11px;
+}
+
+.home-banner {
+  display: block;
+  height: 270px;
+  margin: 80px 0;
+}
+
+.callback {
+  padding: 0 0 10px;
+}
+
+.callback h2 {
+  margin-bottom: 16px;
+}
+
+.callback p {
+  font-size: 14px;
+}
+
+/* О клубе */
+.about-quote {
+  margin-bottom: 96px;
+}
+
+.quote-card {
+  min-height: 215px;
+  padding: 36px;
+  background: var(--ink);
+  border-radius: 24px;
+  color: #fff;
+}
+
+.quote-card h2 {
+  margin-bottom: 18px;
+  font-size: 42px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.quote-card p {
+  max-width: 400px;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.quote-image {
+  height: 367px;
+}
+
+.space-image {
+  height: 400px;
+}
+
+.space-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.small-space {
+  flex: 1 1 auto;
+  min-height: 188px;
+}
+
+.space-details {
+  margin-top: 24px;
+}
+
+.info-card {
+  min-height: 132px;
+  padding: 30px;
+}
+
+.info-card h3,
+.profile-card h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.info-card p,
+.profile-card p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.about-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 96px 0;
+  padding: 36px 48px;
+}
+
+.about-banner h2 {
+  max-width: 550px;
+  margin: 0 0 10px;
+  font-size: 36px;
+  text-transform: uppercase;
+}
+
+.about-banner p {
+  font-size: 14px;
+}
+
+/* Страница тренера и занятия */
+.detail-hero {
+  padding-top: 24px;
+}
+
+.portrait,
+.class-photo {
+  height: 560px;
+}
+
+.detail-copy {
+  padding-left: 3%;
+}
+
+.detail-copy h1 {
+  margin: 24px 0 28px;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.detail-copy p {
+  margin-bottom: 30px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.detail-copy .detail-subtitle {
+  margin-bottom: 36px;
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.detail-copy .pill.btn {
+  padding: 20px 46px;
+}
+
+.detail-badges {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 44px;
+}
+
+.detail-badges .pill {
+  padding: 12px 20px;
+  font-size: 13px;
+}
+
+.profile {
+  padding-top: 96px;
+}
+
+.profile-card {
+  min-height: 196px;
+  padding: 30px;
+}
+
+.class-parameters {
+  margin-top: 96px;
+}
+
+.parameter {
+  padding: 30px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Расписание */
+.schedule-content {
+  padding-top: 12px;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.day-button.btn {
+  padding: 16px 6px;
+  border-radius: 16px;
+  font-size: 13px;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 48px;
+}
+
+.filter-pill.btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.class-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.class-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  min-height: 112px;
+  padding: 28px 36px;
+}
+
+.class-row time {
+  flex: none;
+  width: 80px;
+  font-size: 12px;
+}
+
+.class-info {
+  flex-grow: 1;
+}
+
+.class-row h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+.class-row p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.class-row .pill {
+  padding: 18px 46px;
+}
+
+/* Контакты */
+.contacts-page {
+  padding: 96px 0 0;
+}
+
+.contacts-page h1 {
+  margin: 24px 0 36px;
+}
+
+.contact-lines {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.contact-lines a,
+.contact-lines p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.contact-lines img {
+  width: 17px;
+  max-height: 17px;
+}
+
+.contacts-page .socials {
+  margin-top: 44px;
+}
+
+.map-card {
+  position: relative;
+  height: 367px;
+  border-radius: 36px;
+  overflow: hidden;
+}
+
+.map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map-marker {
+  position: absolute;
+  top: 35%;
+  left: 46%;
+  width: 45px;
+  height: 69px;
+}
+
+.map-marker img {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  width: 35px;
+}
+
+/* Запись и подтверждение */
+.booking-page {
+  padding: 96px 0 60px;
+}
+
+.booking-page h1 {
+  margin: 24px 0 48px;
+}
+
+.booking-form p {
+  margin: 20px 0 30px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.booking-form p a {
+  color: inherit;
+}
+
+.booking-summary {
+  padding-top: 78px;
+}
+
+.booking-summary h2 {
+  margin-bottom: 36px;
+  color: #464447;
+  font-size: 26px;
+  text-transform: uppercase;
+}
+
+.booking-details {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  margin: 0;
+  font-size: 16px;
+}
+
+.booking-details > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.booking-details dt {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.booking-details dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+
+.booking-note {
+  margin: 56px 0 0;
+  padding: 16px 24px;
+  background: #f1f1f1;
+  border-radius: 14px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.confirmation {
+  max-width: 680px;
+  margin: 60px auto 0;
+}
+
+.confirmation-icon {
+  display: block;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 36px;
+}
+
+.confirmation h1 {
+  margin-bottom: 24px;
+  font-size: 42px;
+  font-weight: 600;
+}
+
+.confirmation > p {
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.confirmation-card {
+  max-width: 592px;
+  margin: 0 auto 36px;
+  padding: 30px 48px 40px;
+  background: #eff0f1;
+}
+
+.confirmation-card h2 {
+  margin-bottom: 44px;
+  color: #464447;
+  font-size: 20px;
+}
+
+.confirmation .btn {
+  max-width: 592px;
+}
+
+@media (max-width: 991px) {
+  .promo-card {
+    flex-direction: column;
+    min-height: max-content;
+  }
+
+  .booking-summary {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-hero {
+    padding: 65px 0 100px;
+  }
+
+  .home-section {
+    margin-bottom: 70px;
+  }
+
+  .home-banner {
+    margin: 70px 0;
+  }
+
+  .trainer-card {
+    height: 300px;
+  }
+
+  .trainer-card h3 {
+    font-size: 20px;
+  }
+
+  .promo-card {
+    flex-direction: column;
+    align-items: stretch;
+    row-gap: 24px;
+  }
+
+  .detail-hero {
+    padding-top: 55px;
+  }
+
+  .detail-copy {
+    padding-left: 12px;
+  }
+
+  .portrait,
+  .class-photo {
+    height: 420px;
+  }
+
+  .class-parameters,
+  .profile {
+    margin-top: 70px;
+    padding-top: 0;
+  }
+
+  .days-grid {
+    grid-template-columns: repeat(7, minmax(70px, 1fr));
+    padding-bottom: 8px;
+    overflow-x: auto;
+  }
+
+  .class-row {
+    gap: 12px;
+    padding: 18px;
+  }
+
+  .class-row time {
+    width: 50px;
+  }
+
+  .class-row .pill {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+
+  .contacts-page {
+    padding-top: 70px;
+  }
+
+  .map-card {
+    height: 300px;
+  }
+
+  .booking-page {
+    padding-top: 70px;
+  }
+
+  .confirmation-card {
+    padding: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .confirmation h1,
+  .detail-copy h1 {
+    font-size: 32px;
+  }
+
+  .quote-card h2 {
+    font-size: 32px;
+  }
+
+  .about-banner h2 {
+    font-size: 28px;
+  }
+
+  .class-row {
+    flex-wrap: wrap;
+  }
+
+  .class-row .pill {
+    margin-left: auto;
+  }
+
+  .booking-details {
+    font-size: 14px;
+  }
+}

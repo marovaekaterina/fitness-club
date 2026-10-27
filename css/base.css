@@ -1,0 +1,255 @@
+/* шрифты, переменные, типографика, кнопки, формы */
+
+/* Шрифт */
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("../fonts/SuisseIntl-Book.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("../fonts/SuisseIntl-Regular.woff2") format("woff2");
+  font-weight: 450;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("../fonts/SuisseIntl-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("../fonts/SuisseIntl-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("../fonts/SuisseIntl-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* Переменные */
+:root {
+  --ink: #060308;
+  --paper: #f7f7f7;
+  --soft: #e6e6e6;
+  --muted: #6f6d71;
+  --line-dark: #181818;
+}
+
+/* База */
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Suisse Intl", sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+a,
+a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+address {
+  margin-bottom: 0;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.site-container {
+  width: calc(100% - 48px);
+  max-width: 1272px;
+  margin-inline: auto;
+}
+
+main.site-container {
+  padding-bottom: 96px;
+}
+
+.soft-card {
+  background: var(--soft);
+  border-radius: 24px;
+}
+
+/* Кнопки */
+.pill {
+  border-radius: 100px;
+}
+
+.btn.pill {
+  padding: 16px 32px;
+  border: 1px solid transparent;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.btn.pill-dark,
+.pill-dark {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+.btn.pill-dark:hover {
+  background: #302b32;
+  border-color: #302b32;
+  color: #fff;
+}
+
+.btn.pill-light {
+  background: #fff;
+  color: var(--ink);
+}
+
+.btn.pill-outline {
+  background: transparent;
+  border-color: #e2e2e2;
+  color: var(--ink);
+}
+
+.btn.pill-gray,
+.pill-gray {
+  background: var(--soft);
+  color: var(--ink);
+}
+
+.btn.pill-outline:hover,
+.btn.pill-gray:hover {
+  background: #dcdcdc;
+  color: var(--ink);
+}
+
+.header-cta.btn {
+  padding: 14px 24px;
+}
+
+/* Типографика */
+h1 {
+  text-transform: uppercase;
+}
+
+h1.title-xl,
+.title-xl {
+  font-size: clamp(42px, 4.75vw, 68px);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.eyebrow {
+  padding: 24px 0 0;
+  color: #99989b;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+/* Хлебные крошки */
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  list-style: none;
+}
+
+.breadcrumbs li + li::before {
+  content: "\a0\20 /\20 \a0";
+}
+
+.page-intro {
+  padding: 100px 0 112px;
+}
+
+.page-intro h1 {
+  max-width: 900px;
+  margin: 20px auto 26px;
+}
+
+.intro-description {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Формы */
+.soft-input {
+  min-height: 66px;
+  margin-bottom: 12px;
+  padding: 20px 28px;
+  background: var(--soft);
+  border: 0;
+  border-radius: 18px;
+  font-size: 16px;
+}
+
+.soft-input:focus {
+  background: var(--soft);
+  box-shadow: 0 0 0 2px #777;
+}
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 12px;
+  color: #aaa;
+  font-size: 11px;
+}
+
+.consent input {
+  margin-top: 2px;
+}
+
+.consent a {
+  text-decoration: underline;
+}
+
+@media (max-width: 991px) {
+  .page-intro {
+    padding-top: 80px;
+    padding-bottom: 85px;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-container {
+    width: calc(100% - 36px);
+  }
+
+  .page-intro {
+    padding: 70px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  h1.title-xl,
+  .title-xl {
+    font-size: 38px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+}
