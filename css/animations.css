@@ -1,0 +1,252 @@
+/* Keyframes */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shine-sweep {
+  from {
+    transform: translateX(-120%) skewX(-20deg);
+  }
+
+  to {
+    transform: translateX(260%) skewX(-20deg);
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-20deg);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.15) rotate(4deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes marker-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+
+  55% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  75% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+
+/* Загрузка страницы */
+.home-hero .eyebrow {
+  animation: fade-up 0.7s ease-out backwards;
+}
+
+.home-hero h1 {
+  animation: fade-up 0.7s ease-out 0.15s backwards;
+}
+
+.home-hero p {
+  animation: fade-up 0.7s ease-out 0.3s backwards;
+}
+
+.hero-actions {
+  animation: fade-up 0.7s ease-out 0.45s backwards;
+}
+
+.page-intro h1 {
+  animation: fade-up 0.6s ease-out backwards;
+}
+
+.page-intro .intro-description {
+  animation: fade-up 0.6s ease-out 0.15s backwards;
+}
+
+.class-row {
+  animation: slide-in-left 0.5s ease-out backwards;
+}
+
+.class-row:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.class-row:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.class-row:nth-child(3) {
+  animation-delay: 0.19s;
+}
+
+.class-row:nth-child(4) {
+  animation-delay: 0.26s;
+}
+
+.class-row:nth-child(5) {
+  animation-delay: 0.33s;
+}
+
+.class-row:nth-child(6) {
+  animation-delay: 0.4s;
+}
+
+.confirmation-icon {
+  animation: pop-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s backwards;
+}
+
+.map-marker {
+  animation: marker-drop 0.9s ease-out 0.4s backwards;
+}
+
+
+
+/* Hover */
+.btn.pill {
+  transition: transform 0.25s ease, background-color 0.25s ease,
+    border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn.pill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(6, 3, 8, 0.16);
+}
+
+.btn.pill:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+
+
+/* Подчёркивание */
+.header-nav a {
+  position: relative;
+  padding-block: 4px;
+}
+
+.header-nav a:hover {
+  font-weight: inherit;
+}
+
+.header-nav a::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.header-nav a:hover::after,
+.header-nav a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.soft-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.training-tile:hover,
+.trainer-card:hover,
+.promo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 32px rgba(6, 3, 8, 0.12);
+}
+
+
+
+/* Блик на плитках направлений */
+.training-tile {
+  position: relative;
+  overflow: hidden;
+}
+
+.training-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  pointer-events: none;
+  transform: translateX(-120%) skewX(-20deg);
+}
+
+.training-tile:hover::after {
+  animation: shine-sweep 0.8s ease-out;
+}
+
+.class-row:hover {
+  background: #dedede;
+  transform: translateX(6px);
+}
+
+
+
+/* Появление при прокрутке */
+@supports (animation-timeline: view()) {
+
+  .home-section h2,
+  .training-tile,
+  .promo-card,
+  .trainer-card,
+  .home-banner,
+  .callback,
+  .quote-card,
+  .info-card,
+  .about-banner,
+  .profile-card,
+  .parameter {
+    animation: fade-up linear backwards;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
