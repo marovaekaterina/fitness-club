@@ -1,0 +1,4 @@
+@mixin lift($y: -4px) {
+  transition: transform $speed ease;
+  &:hover { transform: translateY($y); }
+}
