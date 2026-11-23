@@ -14,3 +14,26 @@
   align-items: $align;
   gap: $gap;
 }
+
+@mixin font-face($file, $weight) {
+  @font-face {
+    font-family: "Suisse Intl";
+    src: url("../fonts/#{$file}.woff2") format("woff2");
+    font-weight: $weight;
+    font-display: swap;
+  }
+}
+
+@mixin lift($y: -4px) {
+  &:hover {
+    transform: translateY($y);
+  }
+}
+
+@mixin social-sprite($step) {
+  @for $i from 2 through 3 {
+    li:nth-child(#{$i}) a {
+      background-position: (-1 * $step * ($i - 1)) 0;
+    }
+  }
+}

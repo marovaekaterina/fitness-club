@@ -1,15 +1,19 @@
 /* Шапка и Подвал (общие для всех страниц) */
+@use "variables" as *;
+@use "mixins" as *;
 
 /* Шапка */
 .site-header {
   height: 84px;
-  border: 1px solid #f0f0f0;
+  border: 1px solid $color-header-border;
+
+  @include max-width($bp-md) {
+    height: 68px;
+  }
 }
 
 .header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @include flex-box($justify: space-between, $align: center);
   height: 100%;
 }
 
@@ -18,27 +22,61 @@
   flex: none;
   width: 66px;
   height: 48px;
-}
 
-.brand img {
-  width: 66px;
-  height: 48px;
+  img {
+    width: 66px;
+    height: 48px;
+  }
 }
 
 .header-nav {
-  display: flex;
-  align-items: center;
-  gap: 36px;
+  @include flex-box($align: center, $gap: 36px);
   margin-left: 15%;
   font-size: 16px;
+
+  a {
+    &:hover {
+      font-weight: 600;
+    }
+
+    @include max-width($bp-lg) {
+      font-size: 14px;
+    }
+  }
+
+  @include max-width($bp-lg) {
+    gap: 15px;
+    margin-left: 0;
+  }
 }
 
-.header-nav a:hover {
-  font-weight: 600;
+.header-cta.btn {
+  @include max-width($bp-lg) {
+    padding: 12px 18px;
+    font-size: 13px;
+  }
+}
+
+.header-nav,
+.header-cta {
+  @include max-width($bp-md) {
+    display: none;
+  }
 }
 
 .mobile-nav {
   display: none;
+
+  .btn {
+    @include max-width($bp-md) {
+      padding: 9px 18px;
+      font-size: 13px;
+    }
+  }
+
+  @include max-width($bp-md) {
+    display: block;
+  }
 }
 
 /* Подвал */
@@ -46,11 +84,15 @@
   padding: 48px 0 42px;
   background: var(--ink);
   border-top: 2px solid var(--line-dark);
-  color: #fefefe;
+  color: $color-footer-text;
 }
 
 .footer-top {
   min-height: 252px;
+
+  @include max-width($bp-lg) {
+    min-height: 0;
+  }
 }
 
 .footer-brand {
@@ -63,16 +105,14 @@
 .footer-intro p {
   max-width: 300px;
   margin-bottom: 48px;
-  color: #d3d3d3;
+  color: $color-footer-intro;
   font-size: 13px;
   line-height: 1.5;
 }
 
 .footer-column {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  color: #d9d8d9;
+  @include flex-box($direction: column, $gap: 12px);
+  color: $color-footer-link;
   font-size: 13px;
 }
 
@@ -90,126 +130,69 @@
   text-decoration: underline;
 }
 
-.footer-contacts a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-}
+.footer-contacts {
+  a {
+    @include flex-box($align: center, $gap: 8px);
+    white-space: nowrap;
+  }
 
-.footer-contacts img {
-  width: auto;
-  max-width: 17px;
-  height: 15px;
+  img {
+    width: auto;
+    max-width: 17px;
+    height: 15px;
+  }
 }
 
 .footer-bottom {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 16px;
+  @include flex-box($justify: space-between, $gap: 16px, $wrap: wrap);
   margin-top: 60px;
   padding-top: 24px;
   border-top: 1px solid var(--line-dark);
-  color: #828288;
+  color: $color-footer-bottom;
   font-size: 11px;
-}
 
-.footer-bottom p {
-  margin: 0;
-}
+  p {
+    margin: 0;
+  }
 
-.footer-bottom nav {
-  display: flex;
-  gap: 24px;
-}
+  nav {
+    @include flex-box($gap: 24px);
+  }
 
-.footer-bottom a {
-  color: inherit;
+  a {
+    color: inherit;
+  }
+
+  @include max-width($bp-md) {
+    margin-top: 50px;
+  }
 }
 
 /* Соцсети */
 .socials {
-  display: flex;
-  gap: 18px;
+  @include flex-box($gap: 18px);
   margin: 0;
   padding: 0;
   list-style: none;
-}
 
-.socials a {
-  display: block;
-  width: 24px;
-  height: 24px;
-  background: url("../img/social/socials-light.svg") no-repeat;
-}
+  a {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url("../img/social/socials-light.svg") no-repeat;
+  }
 
-.socials li:nth-child(2) a {
-  background-position: -42px 0;
-}
-
-.socials li:nth-child(3) a {
-  background-position: -84px 0;
+  @include social-sprite(42px);
 }
 
 .socials-large {
   gap: 27px;
-}
 
-.socials-large a {
-  width: 36px;
-  height: 36px;
-  background-image: url("../img/social/socials-dark.svg");
-}
-
-.socials-large li:nth-child(2) a {
-  background-position: -63px 0;
-}
-
-.socials-large li:nth-child(3) a {
-  background-position: -126px 0;
-}
-
-@media (max-width: 991px) {
-  .header-nav {
-    gap: 15px;
-    margin-left: 0;
+  a {
+    width: 36px;
+    height: 36px;
+    background-image: url("../img/social/socials-dark.svg");
   }
 
-  .header-nav a {
-    font-size: 14px;
-  }
-
-  .header-cta.btn {
-    padding: 12px 18px;
-    font-size: 13px;
-  }
-
-  .footer-top {
-    min-height: 0;
-  }
-}
-
-@media (max-width: 767px) {
-  .site-header {
-    height: 68px;
-  }
-
-  .header-nav,
-  .header-cta {
-    display: none;
-  }
-
-  .mobile-nav {
-    display: block;
-  }
-
-  .mobile-nav .btn {
-    padding: 9px 18px;
-    font-size: 13px;
-  }
-
-  .footer-bottom {
-    margin-top: 50px;
-  }
+  @include social-sprite(63px);
 }
