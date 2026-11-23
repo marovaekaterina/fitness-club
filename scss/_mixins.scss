@@ -1,4 +1,16 @@
-@mixin lift($y: -4px) {
-  transition: transform $speed ease;
-  &:hover { transform: translateY($y); }
+@use "variables" as *;
+
+@mixin max-width($breakpoint) {
+  max-width: $breakpoint {
+    @content;
+  }
+}
+
+@mixin flex-box($direction: null, $justify: null, $align: null, $gap: null, $wrap: null) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
 }
