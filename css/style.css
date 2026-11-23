@@ -1,7 +1,1276 @@
-@import url("base.css");
+@charset "UTF-8";
+/* шрифты, переменные, типографика, кнопки, формы */
+/* Шрифт */
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("../fonts/SuisseIntl-Book.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("../fonts/SuisseIntl-Regular.woff2") format("woff2");
+  font-weight: 450;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("../fonts/SuisseIntl-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("../fonts/SuisseIntl-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("../fonts/SuisseIntl-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+/* Переменные */
+:root {
+  --ink: #060308;
+  --paper: #f7f7f7;
+  --soft: #e6e6e6;
+  --muted: #6f6d71;
+  --line-dark: #181818;
+}
 
-@import url("layout.css");
+/* База */
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Suisse Intl", sans-serif;
+}
 
-@import url("pages.css");
+button,
+input {
+  font: inherit;
+}
 
-@import url("animations.css");
+a,
+a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+address {
+  margin-bottom: 0;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.site-container {
+  width: calc(100% - 48px);
+  max-width: 1272px;
+  margin-inline: auto;
+}
+
+main.site-container {
+  padding-bottom: 96px;
+}
+
+.soft-card {
+  background: var(--soft);
+  border-radius: 24px;
+}
+
+/* Кнопки */
+.pill {
+  border-radius: 100px;
+}
+
+.btn.pill {
+  padding: 16px 32px;
+  border: 1px solid transparent;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.btn.pill-dark,
+.pill-dark {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+.btn.pill-dark:hover {
+  background: #302b32;
+  border-color: #302b32;
+  color: #fff;
+}
+
+.btn.pill-light {
+  background: #fff;
+  color: var(--ink);
+}
+
+.btn.pill-outline {
+  background: transparent;
+  border-color: #e2e2e2;
+  color: var(--ink);
+}
+
+.btn.pill-gray,
+.pill-gray {
+  background: var(--soft);
+  color: var(--ink);
+}
+
+.btn.pill-outline:hover,
+.btn.pill-gray:hover {
+  background: #dcdcdc;
+  color: var(--ink);
+}
+
+.header-cta.btn {
+  padding: 14px 24px;
+}
+
+/* Типографика */
+h1 {
+  text-transform: uppercase;
+}
+
+h1.title-xl,
+.title-xl {
+  font-size: clamp(42px, 4.75vw, 68px);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.eyebrow {
+  padding: 24px 0 0;
+  color: #99989b;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+/* Хлебные крошки */
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  list-style: none;
+}
+
+.breadcrumbs li + li::before {
+  content: "  /  ";
+}
+
+.page-intro {
+  padding: 100px 0 112px;
+}
+
+.page-intro h1 {
+  max-width: 900px;
+  margin: 20px auto 26px;
+}
+
+.intro-description {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Формы */
+.soft-input {
+  min-height: 66px;
+  margin-bottom: 12px;
+  padding: 20px 28px;
+  background: var(--soft);
+  border: 0;
+  border-radius: 18px;
+  font-size: 16px;
+}
+
+.soft-input:focus {
+  background: var(--soft);
+  box-shadow: 0 0 0 2px #777;
+}
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 12px;
+  color: #aaa;
+  font-size: 11px;
+}
+
+.consent input {
+  margin-top: 2px;
+}
+
+.consent a {
+  text-decoration: underline;
+}
+
+@media (max-width: 991px) {
+  .page-intro {
+    padding-top: 80px;
+    padding-bottom: 85px;
+  }
+}
+@media (max-width: 767px) {
+  .site-container {
+    width: calc(100% - 36px);
+  }
+  .page-intro {
+    padding: 70px 0;
+  }
+}
+@media (max-width: 480px) {
+  h1.title-xl,
+  .title-xl {
+    font-size: 38px;
+  }
+  h2 {
+    font-size: 30px;
+  }
+}
+/* Шапка и Подвал (общие для всех страниц) */
+/* Шапка */
+.site-header {
+  height: 84px;
+  border: 1px solid #f0f0f0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.brand {
+  display: block;
+  flex: none;
+  width: 66px;
+  height: 48px;
+}
+
+.brand img {
+  width: 66px;
+  height: 48px;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  margin-left: 15%;
+  font-size: 16px;
+}
+
+.header-nav a:hover {
+  font-weight: 600;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+/* Подвал */
+.site-footer {
+  padding: 48px 0 42px;
+  background: var(--ink);
+  border-top: 2px solid var(--line-dark);
+  color: #fefefe;
+}
+
+.footer-top {
+  min-height: 252px;
+}
+
+.footer-brand {
+  display: inline-block;
+  margin-bottom: 28px;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.footer-intro p {
+  max-width: 300px;
+  margin-bottom: 48px;
+  color: #d3d3d3;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: #d9d8d9;
+  font-size: 13px;
+}
+
+.footer-title {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.footer-column a:hover,
+.footer-bottom a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-contacts a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.footer-contacts img {
+  width: auto;
+  max-width: 17px;
+  height: 15px;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-dark);
+  color: #828288;
+  font-size: 11px;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+.footer-bottom nav {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-bottom a {
+  color: inherit;
+}
+
+/* Соцсети */
+.socials {
+  display: flex;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.socials a {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url("../img/social/socials-light.svg") no-repeat;
+}
+
+.socials li:nth-child(2) a {
+  background-position: -42px 0;
+}
+
+.socials li:nth-child(3) a {
+  background-position: -84px 0;
+}
+
+.socials-large {
+  gap: 27px;
+}
+
+.socials-large a {
+  width: 36px;
+  height: 36px;
+  background-image: url("../img/social/socials-dark.svg");
+}
+
+.socials-large li:nth-child(2) a {
+  background-position: -63px 0;
+}
+
+.socials-large li:nth-child(3) a {
+  background-position: -126px 0;
+}
+
+@media (max-width: 991px) {
+  .header-nav {
+    gap: 15px;
+    margin-left: 0;
+  }
+  .header-nav a {
+    font-size: 14px;
+  }
+  .header-cta.btn {
+    padding: 12px 18px;
+    font-size: 13px;
+  }
+  .footer-top {
+    min-height: 0;
+  }
+}
+@media (max-width: 767px) {
+  .site-header {
+    height: 68px;
+  }
+  .header-nav,
+  .header-cta {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+  }
+  .mobile-nav .btn {
+    padding: 9px 18px;
+    font-size: 13px;
+  }
+  .footer-bottom {
+    margin-top: 50px;
+  }
+}
+/* Главная */
+.home-hero {
+  padding: 28px 0 150px;
+}
+
+.home-hero h1 {
+  margin: 36px auto;
+}
+
+.home-hero p {
+  margin-bottom: 36px;
+  font-size: 16px;
+  font-weight: 450;
+  line-height: 1.65;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.home-section {
+  margin-bottom: 80px;
+}
+
+.home-section h2,
+.about-space h2,
+.profile h2 {
+  margin-bottom: 30px;
+}
+
+.training-tile {
+  display: flex;
+  align-items: end;
+  height: 252px;
+  padding: 26px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.training-tile:hover,
+.trainer-card:hover {
+  background: #dedede;
+}
+
+.promo-row {
+  margin-top: 60px;
+}
+
+.promo-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 148px;
+  padding: 30px 36px;
+}
+
+.promo-card h3 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.promo-card .pill {
+  padding: 12px 30px;
+}
+
+.trainer-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 376px;
+  padding: 20px;
+}
+
+.trainer-card h3 {
+  margin-bottom: 12px;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.trainer-card p {
+  margin-bottom: 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.trainer-card small {
+  color: #a7a5a8;
+  font-size: 11px;
+}
+
+.home-banner {
+  display: block;
+  height: 270px;
+  margin: 80px 0;
+}
+
+.callback {
+  padding: 0 0 10px;
+}
+
+.callback h2 {
+  margin-bottom: 16px;
+}
+
+.callback p {
+  font-size: 14px;
+}
+
+/* О клубе */
+.about-quote {
+  margin-bottom: 96px;
+}
+
+.quote-card {
+  min-height: 215px;
+  padding: 36px;
+  background: var(--ink);
+  border-radius: 24px;
+  color: #fff;
+}
+
+.quote-card h2 {
+  margin-bottom: 18px;
+  font-size: 42px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.quote-card p {
+  max-width: 400px;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.quote-image {
+  height: 367px;
+}
+
+.space-image {
+  height: 400px;
+}
+
+.space-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.small-space {
+  flex: 1 1 auto;
+  min-height: 188px;
+}
+
+.space-details {
+  margin-top: 24px;
+}
+
+.info-card {
+  min-height: 132px;
+  padding: 30px;
+}
+
+.info-card h3,
+.profile-card h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.info-card p,
+.profile-card p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.about-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 96px 0;
+  padding: 36px 48px;
+}
+
+.about-banner h2 {
+  max-width: 550px;
+  margin: 0 0 10px;
+  font-size: 36px;
+  text-transform: uppercase;
+}
+
+.about-banner p {
+  font-size: 14px;
+}
+
+/* Страница тренера и занятия */
+.detail-hero {
+  padding-top: 24px;
+}
+
+.portrait,
+.class-photo {
+  height: 560px;
+}
+
+.detail-copy {
+  padding-left: 3%;
+}
+
+.detail-copy h1 {
+  margin: 24px 0 28px;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.detail-copy p {
+  margin-bottom: 30px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.detail-copy .detail-subtitle {
+  margin-bottom: 36px;
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.detail-copy .pill.btn {
+  padding: 20px 46px;
+}
+
+.detail-badges {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 44px;
+}
+
+.detail-badges .pill {
+  padding: 12px 20px;
+  font-size: 13px;
+}
+
+.profile {
+  padding-top: 96px;
+}
+
+.profile-card {
+  min-height: 196px;
+  padding: 30px;
+}
+
+.class-parameters {
+  margin-top: 96px;
+}
+
+.parameter {
+  padding: 30px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Расписание */
+.schedule-content {
+  padding-top: 12px;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.day-button.btn {
+  padding: 16px 6px;
+  border-radius: 16px;
+  font-size: 13px;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 48px;
+}
+
+.filter-pill.btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.class-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.class-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  min-height: 112px;
+  padding: 28px 36px;
+}
+
+.class-row time {
+  flex: none;
+  width: 80px;
+  font-size: 12px;
+}
+
+.class-info {
+  flex-grow: 1;
+}
+
+.class-row h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+.class-row p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.class-row .pill {
+  padding: 18px 46px;
+}
+
+/* Контакты */
+.contacts-page {
+  padding: 96px 0 0;
+}
+
+.contacts-page h1 {
+  margin: 24px 0 36px;
+}
+
+.contact-lines {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.contact-lines a,
+.contact-lines p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.contact-lines img {
+  width: 17px;
+  max-height: 17px;
+}
+
+.contacts-page .socials {
+  margin-top: 44px;
+}
+
+.map-card {
+  position: relative;
+  height: 367px;
+  border-radius: 36px;
+  overflow: hidden;
+}
+
+.map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map-marker {
+  position: absolute;
+  top: 35%;
+  left: 46%;
+  width: 45px;
+  height: 69px;
+}
+
+.map-marker img {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  width: 35px;
+}
+
+/* Запись и подтверждение */
+.booking-page {
+  padding: 96px 0 60px;
+}
+
+.booking-page h1 {
+  margin: 24px 0 48px;
+}
+
+.booking-form p {
+  margin: 20px 0 30px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.booking-form p a {
+  color: inherit;
+}
+
+.booking-summary {
+  padding-top: 78px;
+}
+
+.booking-summary h2 {
+  margin-bottom: 36px;
+  color: #464447;
+  font-size: 26px;
+  text-transform: uppercase;
+}
+
+.booking-details {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  margin: 0;
+  font-size: 16px;
+}
+
+.booking-details > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.booking-details dt {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.booking-details dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+
+.booking-note {
+  margin: 56px 0 0;
+  padding: 16px 24px;
+  background: #f1f1f1;
+  border-radius: 14px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.confirmation {
+  max-width: 680px;
+  margin: 60px auto 0;
+}
+
+.confirmation-icon {
+  display: block;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 36px;
+}
+
+.confirmation h1 {
+  margin-bottom: 24px;
+  font-size: 42px;
+  font-weight: 600;
+}
+
+.confirmation > p {
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.confirmation-card {
+  max-width: 592px;
+  margin: 0 auto 36px;
+  padding: 30px 48px 40px;
+  background: #eff0f1;
+}
+
+.confirmation-card h2 {
+  margin-bottom: 44px;
+  color: #464447;
+  font-size: 20px;
+}
+
+.confirmation .btn {
+  max-width: 592px;
+}
+
+@media (max-width: 991px) {
+  .promo-card {
+    flex-direction: column;
+    min-height: max-content;
+  }
+  .booking-summary {
+    padding-top: 0;
+  }
+}
+@media (max-width: 767px) {
+  .home-hero {
+    padding: 65px 0 100px;
+  }
+  .home-section {
+    margin-bottom: 70px;
+  }
+  .home-banner {
+    margin: 70px 0;
+  }
+  .trainer-card {
+    height: 300px;
+  }
+  .trainer-card h3 {
+    font-size: 20px;
+  }
+  .promo-card {
+    flex-direction: column;
+    align-items: stretch;
+    row-gap: 24px;
+  }
+  .detail-hero {
+    padding-top: 55px;
+  }
+  .detail-copy {
+    padding-left: 12px;
+  }
+  .portrait,
+  .class-photo {
+    height: 420px;
+  }
+  .class-parameters,
+  .profile {
+    margin-top: 70px;
+    padding-top: 0;
+  }
+  .days-grid {
+    grid-template-columns: repeat(7, minmax(70px, 1fr));
+    padding-bottom: 8px;
+    overflow-x: auto;
+  }
+  .class-row {
+    gap: 12px;
+    padding: 18px;
+  }
+  .class-row time {
+    width: 50px;
+  }
+  .class-row .pill {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+  .contacts-page {
+    padding-top: 70px;
+  }
+  .map-card {
+    height: 300px;
+  }
+  .booking-page {
+    padding-top: 70px;
+  }
+  .confirmation-card {
+    padding: 26px;
+  }
+}
+@media (max-width: 480px) {
+  .confirmation h1,
+  .detail-copy h1 {
+    font-size: 32px;
+  }
+  .quote-card h2 {
+    font-size: 32px;
+  }
+  .about-banner h2 {
+    font-size: 28px;
+  }
+  .class-row {
+    flex-wrap: wrap;
+  }
+  .class-row .pill {
+    margin-left: auto;
+  }
+  .booking-details {
+    font-size: 14px;
+  }
+}
+/* Keyframes */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes shine-sweep {
+  from {
+    transform: translateX(-120%) skewX(-20deg);
+  }
+  to {
+    transform: translateX(260%) skewX(-20deg);
+  }
+}
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-20deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.15) rotate(4deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+@keyframes marker-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* Загрузка страницы */
+.home-hero .eyebrow {
+  animation: fade-up 0.7s ease-out backwards;
+}
+
+.home-hero h1 {
+  animation: fade-up 0.7s ease-out 0.15s backwards;
+}
+
+.home-hero p {
+  animation: fade-up 0.7s ease-out 0.3s backwards;
+}
+
+.hero-actions {
+  animation: fade-up 0.7s ease-out 0.45s backwards;
+}
+
+.page-intro h1 {
+  animation: fade-up 0.6s ease-out backwards;
+}
+
+.page-intro .intro-description {
+  animation: fade-up 0.6s ease-out 0.15s backwards;
+}
+
+.class-row {
+  animation: slide-in-left 0.5s ease-out backwards;
+}
+
+.class-row:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.class-row:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.class-row:nth-child(3) {
+  animation-delay: 0.19s;
+}
+
+.class-row:nth-child(4) {
+  animation-delay: 0.26s;
+}
+
+.class-row:nth-child(5) {
+  animation-delay: 0.33s;
+}
+
+.class-row:nth-child(6) {
+  animation-delay: 0.4s;
+}
+
+.confirmation-icon {
+  animation: pop-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s backwards;
+}
+
+.map-marker {
+  animation: marker-drop 0.9s ease-out 0.4s backwards;
+}
+
+/* Hover */
+.btn.pill {
+  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn.pill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(6, 3, 8, 0.16);
+}
+
+.btn.pill:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+/* Подчёркивание */
+.header-nav a {
+  position: relative;
+  padding-block: 4px;
+}
+
+.header-nav a:hover {
+  font-weight: inherit;
+}
+
+.header-nav a::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.header-nav a:hover::after,
+.header-nav a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.soft-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.training-tile:hover,
+.trainer-card:hover,
+.promo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 32px rgba(6, 3, 8, 0.12);
+}
+
+/* Блик на плитках направлений */
+.training-tile {
+  position: relative;
+  overflow: hidden;
+}
+
+.training-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  pointer-events: none;
+  transform: translateX(-120%) skewX(-20deg);
+}
+
+.training-tile:hover::after {
+  animation: shine-sweep 0.8s ease-out;
+}
+
+.class-row:hover {
+  background: #dedede;
+  transform: translateX(6px);
+}
+
+/* Появление при прокрутке */
+@supports (animation-timeline: view()) {
+  .home-section h2,
+  .training-tile,
+  .promo-card,
+  .trainer-card,
+  .home-banner,
+  .callback,
+  .quote-card,
+  .info-card,
+  .about-banner,
+  .profile-card,
+  .parameter {
+    animation: fade-up linear backwards;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

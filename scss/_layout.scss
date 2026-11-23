@@ -1,0 +1,198 @@
+/* Шапка и Подвал (общие для всех страниц) */
+@use "variables" as *;
+@use "mixins" as *;
+
+/* Шапка */
+.site-header {
+  height: 84px;
+  border: 1px solid $color-header-border;
+
+  @include max-width($bp-md) {
+    height: 68px;
+  }
+}
+
+.header-inner {
+  @include flex-box($justify: space-between, $align: center);
+  height: 100%;
+}
+
+.brand {
+  display: block;
+  flex: none;
+  width: 66px;
+  height: 48px;
+
+  img {
+    width: 66px;
+    height: 48px;
+  }
+}
+
+.header-nav {
+  @include flex-box($align: center, $gap: 36px);
+  margin-left: 15%;
+  font-size: 16px;
+
+  a {
+    &:hover {
+      font-weight: 600;
+    }
+
+    @include max-width($bp-lg) {
+      font-size: 14px;
+    }
+  }
+
+  @include max-width($bp-lg) {
+    gap: 15px;
+    margin-left: 0;
+  }
+}
+
+.header-cta.btn {
+  @include max-width($bp-lg) {
+    padding: 12px 18px;
+    font-size: 13px;
+  }
+}
+
+.header-nav,
+.header-cta {
+  @include max-width($bp-md) {
+    display: none;
+  }
+}
+
+.mobile-nav {
+  display: none;
+
+  .btn {
+    @include max-width($bp-md) {
+      padding: 9px 18px;
+      font-size: 13px;
+    }
+  }
+
+  @include max-width($bp-md) {
+    display: block;
+  }
+}
+
+/* Подвал */
+.site-footer {
+  padding: 48px 0 42px;
+  background: var(--ink);
+  border-top: 2px solid var(--line-dark);
+  color: $color-footer-text;
+}
+
+.footer-top {
+  min-height: 252px;
+
+  @include max-width($bp-lg) {
+    min-height: 0;
+  }
+}
+
+.footer-brand {
+  display: inline-block;
+  margin-bottom: 28px;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.footer-intro p {
+  max-width: 300px;
+  margin-bottom: 48px;
+  color: $color-footer-intro;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.footer-column {
+  @include flex-box($direction: column, $gap: 12px);
+  color: $color-footer-link;
+  font-size: 13px;
+}
+
+.footer-title {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.footer-column a:hover,
+.footer-bottom a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-contacts {
+  a {
+    @include flex-box($align: center, $gap: 8px);
+    white-space: nowrap;
+  }
+
+  img {
+    width: auto;
+    max-width: 17px;
+    height: 15px;
+  }
+}
+
+.footer-bottom {
+  @include flex-box($justify: space-between, $gap: 16px, $wrap: wrap);
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-dark);
+  color: $color-footer-bottom;
+  font-size: 11px;
+
+  p {
+    margin: 0;
+  }
+
+  nav {
+    @include flex-box($gap: 24px);
+  }
+
+  a {
+    color: inherit;
+  }
+
+  @include max-width($bp-md) {
+    margin-top: 50px;
+  }
+}
+
+/* Соцсети */
+.socials {
+  @include flex-box($gap: 18px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  a {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url("../img/social/socials-light.svg") no-repeat;
+  }
+
+  @include social-sprite(42px);
+}
+
+.socials-large {
+  gap: 27px;
+
+  a {
+    width: 36px;
+    height: 36px;
+    background-image: url("../img/social/socials-dark.svg");
+  }
+
+  @include social-sprite(63px);
+}

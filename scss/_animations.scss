@@ -1,0 +1,157 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes shine-sweep {
+  from { transform: translateX(-120%) skewX(-20deg); }
+  to   { transform: translateX(260%) skewX(-20deg); }
+}
+
+@keyframes pop-in {
+  0%   { opacity: 0; transform: scale(0) rotate(-20deg); }
+  60%  { opacity: 1; transform: scale(1.15) rotate(4deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+@keyframes marker-drop {
+  0%   { opacity: 0; transform: translateY(-60px); }
+  55%  { opacity: 1; transform: translateY(0); }
+  75%  { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+.home-hero {
+  .eyebrow { animation: fade-up 0.7s ease-out backwards; }
+  h1       { animation: fade-up 0.7s ease-out 0.15s backwards; }
+  p        { animation: fade-up 0.7s ease-out 0.3s backwards; }
+}
+
+.hero-actions {
+  animation: fade-up 0.7s ease-out 0.45s backwards;
+}
+
+.page-intro {
+  h1 { animation: fade-up 0.6s ease-out backwards; }
+  .intro-description { animation: fade-up 0.6s ease-out 0.15s backwards; }
+}
+
+.class-row {
+  animation: slide-in-left 0.5s ease-out backwards;
+
+  @for $i from 1 through 6 {
+    &:nth-child(#{$i}) {
+      animation-delay: 0.05s + ($i - 1) * 0.07s;
+    }
+  }
+}
+
+.confirmation-icon {
+  animation: pop-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s backwards;
+}
+
+.map-marker {
+  animation: marker-drop 0.9s ease-out 0.4s backwards;
+}
+
+.btn.pill {
+  transition: transform 0.25s ease, background-color 0.25s ease,
+    border-color 0.25s ease;
+
+  &:hover  { transform: translateY(-2px); }
+  &:active { transform: scale(0.97); }
+}
+
+.header-nav a {
+  position: relative;
+  padding-block: 4px;
+
+  &:hover {
+    font-weight: inherit;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 2px;
+    background: var(--ink);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform $speed ease;
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+.soft-card {
+  transition: transform $speed ease, background-color $speed ease;
+}
+
+.training-tile,
+.trainer-card,
+.promo-card {
+  @include lift(-4px);
+}
+
+.training-tile {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 40%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    pointer-events: none;
+    transform: translateX(-120%) skewX(-20deg);
+  }
+
+  &:hover::after {
+    animation: shine-sweep 0.8s ease-out;
+  }
+}
+
+.class-row:hover {
+  background: $color-hover;
+  transform: translateX(6px);
+}
+
+@supports (animation-timeline: view()) {
+  .home-section h2,
+  .training-tile,
+  .promo-card,
+  .trainer-card,
+  .home-banner,
+  .callback,
+  .quote-card,
+  .info-card,
+  .about-banner,
+  .profile-card,
+  .parameter {
+    animation: fade-up linear backwards;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

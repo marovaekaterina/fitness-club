@@ -1,0 +1,26 @@
+{
+  "name": "fitness-club",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass scss/main.scss css/style.css",
+    "watch": "sass --watch scss/main.scss css/style.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marovaekaterina/fitness-club.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/marovaekaterina/fitness-club/issues"
+  },
+  "homepage": "https://github.com/marovaekaterina/fitness-club#readme",
+  "devDependencies": {
+    "sass": "^1.108.2"
+  }
+}

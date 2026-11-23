@@ -1,0 +1,599 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+/* Главная */
+.home-hero {
+  padding: 28px 0 150px;
+
+  h1 {
+    margin: 36px auto;
+  }
+
+  p {
+    margin-bottom: 36px;
+    font-size: 16px;
+    font-weight: 450;
+    line-height: 1.65;
+  }
+
+  @include max-width($bp-md) {
+    padding: 65px 0 100px;
+  }
+}
+
+.hero-actions {
+  @include flex-box($justify: center, $gap: 16px, $wrap: wrap);
+}
+
+.home-section {
+  margin-bottom: 80px;
+
+  @include max-width($bp-md) {
+    margin-bottom: 70px;
+  }
+}
+
+.home-section h2,
+.about-space h2,
+.profile h2 {
+  margin-bottom: 30px;
+}
+
+.training-tile {
+  display: flex;
+  align-items: end;
+  height: 252px;
+  padding: 26px;
+  font-size: 20px;
+  font-weight: 500;
+
+  &:hover {
+    background: $color-hover;
+  }
+}
+
+.promo-row {
+  margin-top: 60px;
+}
+
+.promo-card {
+  @include flex-box($justify: space-between, $align: flex-start, $gap: 14px);
+  min-height: 148px;
+  padding: 30px 36px;
+
+  h3 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .pill {
+    padding: 12px 30px;
+  }
+
+  @include max-width($bp-lg) {
+    flex-direction: column;
+    min-height: max-content;
+  }
+
+  @include max-width($bp-md) {
+    align-items: stretch;
+    row-gap: 24px;
+  }
+}
+
+.trainer-card {
+  @include flex-box($direction: column, $justify: flex-end);
+  height: 376px;
+  padding: 20px;
+
+  &:hover {
+    background: $color-hover;
+  }
+
+  h3 {
+    margin-bottom: 12px;
+    font-size: 26px;
+    font-weight: 500;
+  }
+
+  p {
+    margin-bottom: 20px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  small {
+    color: $color-subtle;
+    font-size: 11px;
+  }
+
+  @include max-width($bp-md) {
+    height: 300px;
+
+    h3 {
+      font-size: 20px;
+    }
+  }
+}
+
+.home-banner {
+  display: block;
+  height: 270px;
+  margin: 80px 0;
+
+  @include max-width($bp-md) {
+    margin: 70px 0;
+  }
+}
+
+.callback {
+  padding: 0 0 10px;
+
+  h2 {
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
+/* О клубе */
+.about-quote {
+  margin-bottom: 96px;
+}
+
+.quote-card {
+  min-height: 215px;
+  padding: 36px;
+  background: var(--ink);
+  border-radius: $radius-lg;
+  color: #fff;
+
+  h2 {
+    margin-bottom: 18px;
+    font-size: 42px;
+    line-height: 1.2;
+    text-transform: uppercase;
+
+    @include max-width($bp-sm) {
+      font-size: 32px;
+    }
+  }
+
+  p {
+    max-width: 400px;
+    margin-bottom: 0;
+    font-size: 14px;
+  }
+}
+
+.quote-image {
+  height: 367px;
+}
+
+.space-image {
+  height: 400px;
+}
+
+.space-aside {
+  @include flex-box($direction: column, $gap: 24px);
+}
+
+.small-space {
+  flex: 1 1 auto;
+  min-height: 188px;
+}
+
+.space-details {
+  margin-top: 24px;
+}
+
+.info-card {
+  min-height: 132px;
+  padding: 30px;
+}
+
+.info-card h3,
+.profile-card h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.info-card p,
+.profile-card p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.about-banner {
+  @include flex-box($justify: space-between, $align: center, $gap: 16px, $wrap: wrap);
+  margin: 96px 0;
+  padding: 36px 48px;
+
+  h2 {
+    max-width: 550px;
+    margin: 0 0 10px;
+    font-size: 36px;
+    text-transform: uppercase;
+
+    @include max-width($bp-sm) {
+      font-size: 28px;
+    }
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
+/* Страница тренера и занятия */
+.detail-hero {
+  padding-top: 24px;
+
+  @include max-width($bp-md) {
+    padding-top: 55px;
+  }
+}
+
+.portrait,
+.class-photo {
+  height: 560px;
+
+  @include max-width($bp-md) {
+    height: 420px;
+  }
+}
+
+.detail-copy {
+  padding-left: 3%;
+
+  h1 {
+    margin: 24px 0 28px;
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 1.3;
+
+    @include max-width($bp-sm) {
+      font-size: 32px;
+    }
+  }
+
+  p {
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .detail-subtitle {
+    margin-bottom: 36px;
+    color: var(--ink);
+    font-size: 16px;
+  }
+
+  .pill.btn {
+    padding: 20px 46px;
+  }
+
+  @include max-width($bp-md) {
+    padding-left: 12px;
+  }
+}
+
+.detail-badges {
+  @include flex-box($gap: 16px);
+  margin-bottom: 44px;
+
+  .pill {
+    padding: 12px 20px;
+    font-size: 13px;
+  }
+}
+
+.profile {
+  padding-top: 96px;
+}
+
+.profile-card {
+  min-height: 196px;
+  padding: 30px;
+}
+
+-parameters {
+  margin-top: 96px;
+}
+
+.parameter {
+  padding: 30px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.class-parameters,
+.profile {
+  @include max-width($bp-md) {
+    margin-top: 70px;
+    padding-top: 0;
+  }
+}
+
+/* Расписание */
+.schedule-content {
+  padding-top: 12px;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+
+  @include max-width($bp-md) {
+    grid-template-columns: repeat(7, minmax(70px, 1fr));
+    padding-bottom: 8px;
+    overflow-x: auto;
+  }
+}
+
+.day-button.btn {
+  padding: 16px 6px;
+  border-radius: $radius-md;
+  font-size: 13px;
+}
+
+.filter-row {
+  @include flex-box($gap: 8px, $wrap: wrap);
+  margin-bottom: 48px;
+}
+
+.filter-pill.btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.class-list {
+  @include flex-box($direction: column, $gap: 12px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.class-row {
+  @include flex-box($align: center, $gap: 24px);
+  min-height: 112px;
+  padding: 28px 36px;
+
+  time {
+    flex: none;
+    width: 80px;
+    font-size: 12px;
+
+    @include max-width($bp-md) {
+      width: 50px;
+    }
+  }
+
+  h3 {
+    margin: 0 0 8px;
+    font-size: 14px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 12px;
+  }
+
+  .pill {
+    padding: 18px 46px;
+
+    @include max-width($bp-md) {
+      padding: 10px 15px;
+      font-size: 13px;
+    }
+
+    @include max-width($bp-sm) {
+      margin-left: auto;
+    }
+  }
+
+  @include max-width($bp-md) {
+    gap: 12px;
+    padding: 18px;
+  }
+
+  @include max-width($bp-sm) {
+    flex-wrap: wrap;
+  }
+}
+
+.class-info {
+  flex-grow: 1;
+}
+
+/* Контакты */
+.contacts-page {
+  padding: 96px 0 0;
+
+  h1 {
+    margin: 24px 0 36px;
+  }
+
+  .socials {
+    margin-top: 44px;
+  }
+
+  @include max-width($bp-md) {
+    padding-top: 70px;
+  }
+}
+
+.contact-lines {
+  color: var(--muted);
+  font-size: 16px;
+
+  a,
+  p {
+    @include flex-box($align: center, $gap: 8px);
+    margin-bottom: 20px;
+  }
+
+  img {
+    width: 17px;
+    max-height: 17px;
+  }
+}
+
+.map-card {
+  position: relative;
+  height: 367px;
+  border-radius: $radius-map;
+  overflow: hidden;
+
+  @include max-width($bp-md) {
+    height: 300px;
+  }
+}
+
+.map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map-marker {
+  position: absolute;
+  top: 35%;
+  left: 46%;
+  width: 45px;
+  height: 69px;
+
+  img {
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    width: 35px;
+  }
+}
+
+/* Запись и подтверждение */
+.booking-page {
+  padding: 96px 0 60px;
+
+  h1 {
+    margin: 24px 0 48px;
+  }
+
+  @include max-width($bp-md) {
+    padding-top: 70px;
+  }
+}
+
+.booking-form p {
+  margin: 20px 0 30px;
+  font-size: 14px;
+  line-height: 1.5;
+
+  a {
+    color: inherit;
+  }
+}
+
+.booking-summary {
+  padding-top: 78px;
+
+  h2 {
+    margin-bottom: 36px;
+    color: $color-dark-muted;
+    font-size: 26px;
+    text-transform: uppercase;
+  }
+
+  @include max-width($bp-lg) {
+    padding-top: 0;
+  }
+}
+
+.booking-details {
+  @include flex-box($direction: column, $gap: 36px);
+  margin: 0;
+  font-size: 16px;
+
+  > div {
+    @include flex-box($justify: space-between, $gap: 24px);
+  }
+
+  dt {
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  dd {
+    margin: 0;
+    font-weight: 600;
+    text-align: right;
+  }
+
+  @include max-width($bp-sm) {
+    font-size: 14px;
+  }
+}
+
+.booking-note {
+  margin: 56px 0 0;
+  padding: 16px 24px;
+  background: $color-note;
+  border-radius: $radius-sm;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.confirmation {
+  max-width: 680px;
+  margin: 60px auto 0;
+
+  h1 {
+    margin-bottom: 24px;
+    font-size: 42px;
+    font-weight: 600;
+
+    @include max-width($bp-sm) {
+      font-size: 32px;
+    }
+  }
+
+  > p {
+    margin-bottom: 30px;
+    font-size: 14px;
+  }
+
+  .btn {
+    max-width: 592px;
+  }
+}
+
+.confirmation-icon {
+  display: block;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 36px;
+}
+
+.confirmation-card {
+  max-width: 592px;
+  margin: 0 auto 36px;
+  padding: 30px 48px 40px;
+  background: $color-confirm;
+
+  h2 {
+    margin-bottom: 44px;
+    color: $color-dark-muted;
+    font-size: 20px;
+  }
+
+  @include max-width($bp-md) {
+    padding: 26px;
+  }
+}.class
